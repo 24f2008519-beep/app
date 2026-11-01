@@ -2,11 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <title>My Profile</title>
 </head>
 <body>
     <h1>My Profile</h1>
     <p>Welcome to your profile page.</p>
+
+    <button type="submit" class="btn btn-primary" href='{{ url_for('main.admin_dashboard') }}'>admin_dashboard</button><br>
 </body>
 </html>
