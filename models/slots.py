@@ -7,17 +7,17 @@ CANCELLED = "Cancelled "
 COMPLETED = "Completed"
 
 
-class Examination_Slot(db.Model):
-    slot_id = db.Column(db.Integer, primary_key=True)
+class Slot(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
     
     #student exam info
     exam_id = db.Column(
               db.Integer, 
-              db.ForeignKey("exam.id"), 
+              db.ForeignKey("examination.id"), 
               nullable = False)
     examiner_id = db.Column(
                   db.Integer, 
-                  db.ForeignKey("Examiner_Profile.id"), 
+                  db.ForeignKey("exam_profile.id"), 
                   nullable = False)
     
     #Exam slot booking time

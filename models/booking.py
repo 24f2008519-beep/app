@@ -1,12 +1,16 @@
 from app import db
 from datetime import datetime
 
+BOOKED = "Booked"
+CANCELLED = "Cancelled "
+COMPLETED = "Completed"
+
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     exam_id = db.Column(
               db.Integer, 
-              db.ForeignKey("exam.id"),
+              db.ForeignKey("examination.id"),
               nullable=False)
     slot_id = db.Column(
               db.Integer, 
@@ -14,13 +18,11 @@ class Booking(db.Model):
               nullable=False)
     Student_id = db.Column(
                  db.Integer, 
-                 db.ForeignKey("student.id"), 
+                 db.ForeignKey("user.id"), 
                  nullable=False)
     
     #Booking status
-    BOOKED = "Booked"
-    CANCELLED = "Cancelled "
-    COMPLETED = "Completed"
+
     Status = db.Column(
              db.String(20), 
              default = BOOKED, 
